@@ -2,80 +2,69 @@ import java.util.Scanner;
 
 public class mainClass
 {
+	
+	private static int[] scores = new int[3];
+	private static int[] totals = new int[3];
 	public static void main(String args[])
 	{
-
-
 		towerCubes Cube = new towerCubes();
 		Scanner f = new Scanner(System.in);
-		runtime(f, Cube);
-		runtime(f, Cube);
+		
+		Scored(f, Cube);
+		
+		Stacked(f, Cube);
+		Scoring(auton(f));
+		
+		Stacked(f, Cube);
+		Scoring(auton(f));
+		
 		f.close();
 	}
-
+	
+	public static void Scored(Scanner name, towerCubes Cube)
+	{
+		print("Green Scored");
+		scores[0] = Cube.Green.scored = name.nextInt();
+		print("Purple Scored");
+		scores[1] = Cube.Purple.scored = name.nextInt();
+		print("Orange Scored");
+		scores[2] = Cube.Orange.scored = name.nextInt();
+	}
+	
+	public static void Stacked(Scanner name, towerCubes Cube)
+	{
+		print("Stacked Green");
+		Cube.Green.stacked = name.nextInt();
+		totals[0] = Cube.Green.total = (scores[0] + 1) * Cube.Green.stacked;
+		print("Stacked Purple");
+		Cube.Purple.stacked = name.nextInt();
+		totals[1] = Cube.Purple.total = (scores[1] + 1) * Cube.Purple.stacked;
+		print("Stacked Orange");
+		Cube.Orange.stacked = name.nextInt();
+		totals[2] = Cube.Orange.total = (scores[2] + 1) * Cube.Orange.stacked;
+	}
+	
 	private static void print(String out)
 	{
 		System.out.println(out);
 	}
 
-	private static int multiplier(int input)
-	{
-		if(input == 0)
-		{
-			return 1;
-		}
-		else
-		{
-			return input + 1;
-		}
-	}
-	public static void Scored(Scanner name, towerCubes Cube)
-	{
-		print("Green Scored");
-		Cube.Green.scored = name.nextInt();
-		print("Purple Scored");
-		Cube.Purple.scored = name.nextInt();
-		print("Orange Scored");
-		Cube.Orange.scored = name.nextInt();
-	}
-	public static void Stacked(Scanner name, towerCubes Cube)
-	{
-		print("Stacked Green");
-		Cube.Green.currentVal = multiplier(Cube.Green.scored) * name.nextInt();
-		print("Stacked Purple");
-		Cube.Purple.currentVal = multiplier(Cube.Purple.scored) * name.nextInt();
-		print("Stacked Orange");
-		Cube.Orange.currentVal = multiplier(Cube.Orange.scored) * name.nextInt();
-	}
-
-	public static void Scoring(towerCubes Cube, int autonPoints)
-	{
-		print("The score is: " + String.valueOf(autonPoints +
-				Cube.Green.currentVal +
-				Cube.Orange.currentVal +
-				Cube.Purple.currentVal));
-	}
-
-	public static void runtime(Scanner name, towerCubes Cube)
+	public static int auton(Scanner name)
 	{
 		print("Auton Win");
-		int autonPoints;
 		switch(name.next())
 		{
 			case "Yes":
-				autonPoints = 6;
-				break;
+				return 6;
 			case "Tie":
-				autonPoints = 3;
-				break;
+				return 3;
 			default:
-				autonPoints = 0;
-				break;
+				return 0;
 		}
-		Scored(name, Cube);
-		Stacked(name, Cube);
-		Scoring(name, Cube, autonPoints);
-
-
+	}
+	
+	public static void Scoring(int autonPoints)
+	{
+		print("The score is: " + String.valueOf(autonPoints + totals[0] + totals[1] + totals[2]));
 	}
 }

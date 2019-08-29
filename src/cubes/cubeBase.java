@@ -2,5 +2,7 @@ package cubes;
 
 public class cubeBase
 {
-	public int currentVal;
+	public int total;
+	public int scored;
+	public int stacked;
 }

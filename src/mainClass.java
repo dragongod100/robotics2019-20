@@ -7,6 +7,8 @@ public class mainClass
 		towerCubes Cube = new towerCubes();
 		Scanner input = new Scanner(System.in);
 		
-		Cube.towerHigh[0] = 0;
+		Cube.Purple = input.nextInt();
+		Cube.Green = input.nextInt();
+		
 	}
 }

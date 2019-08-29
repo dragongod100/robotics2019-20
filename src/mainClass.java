@@ -6,9 +6,23 @@ public class mainClass
 	{
 		towerCubes Cube = new towerCubes();
 		Scanner input = new Scanner(System.in);
+		String cubeCheck = input.next();
 		
-		Cube.Purple = input.nextInt();
-		Cube.Green = input.nextInt();
 		
+		switch(cubeCheck)
+		{
+			case "Green":
+				
+				break;
+			case "Purple":
+				
+				break;
+			case "Orange":
+				
+				break;
+			default:
+				
+				break;
+		}
 	}
 }

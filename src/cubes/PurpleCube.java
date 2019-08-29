@@ -1,6 +1,6 @@
 package cubes;
 
-public class PurpleCube
+public class PurpleCube extends cubeBase
 {
 	int scoredLow;
 	int scoredMid;

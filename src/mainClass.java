@@ -1,3 +1,4 @@
+import javax.swing.*;
 import java.util.Scanner;
 
 public class mainClass
@@ -7,9 +8,11 @@ public class mainClass
 	private static int[] totals = new int[3];
 	public static void main(String args[])
 	{
+		TextFieldEx window = new TextFieldEx();
+		
+		
 		towerCubes Cube = new towerCubes();
 		Scanner f = new Scanner(System.in);
-		
 		Scored(f, Cube);
 		
 		Stacked(f, Cube);

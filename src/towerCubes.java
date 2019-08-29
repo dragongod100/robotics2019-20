@@ -1,8 +1,12 @@
+import cubes.GreenCube;
+import cubes.OrangeCube;
+import cubes.PurpleCube;
+
 public class towerCubes
 {
-	int Green;
-	int Orange;
-	int Purple;
+	GreenCube Green = new GreenCube();
+	OrangeCube Orange = new OrangeCube();
+	PurpleCube Purple = new PurpleCube();
 	
 	int[] towerHigh = new int[1];
 	int[] towerMid = new int[2];

@@ -1,3 +1,5 @@
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.util.Scanner;
 
 public class mainClass
@@ -9,7 +11,8 @@ public class mainClass
 	{
 		//TextFieldEx window = new TextFieldEx();
 		getScored.getScoredCube();
-		
+		getScored.getScoredCubes("Green scored: ", scores[0]);
+		print(String.valueOf(scores[0]));
 		/*
 		towerCubes Cube = new towerCubes();
 		Scanner f = new Scanner(System.in);
